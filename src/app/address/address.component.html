@@ -1,0 +1,45 @@
+<div class="p-3 px-4">
+    <div class="userBody">
+        <div class="searchBox">
+            <form class="example-form">
+                <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Srearch By addressId</mat-label>
+                <input matInput [formControl]="userFC">
+                <mat-hint>Ex. addressId</mat-hint>
+                </mat-form-field>
+            </form>
+            <button mat-raised-button color="primary" (click)="getAddress()">Submit</button>
+        </div>
+        <!-- <button mat-button color="primary" (click)="getUser()">Submit</button> -->
+
+        <div class="userCard">
+            <mat-card class="example-card">
+                <mat-card-header>
+                <!-- <div mat-card-avatar class="example-header-image"></div> -->
+                <mat-icon mat-card-avatar>house</mat-icon>
+                <mat-card-title>Address</mat-card-title>
+                <mat-card-subtitle>{{ user.gender }}</mat-card-subtitle>
+                </mat-card-header>
+                <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+                <mat-card-content>
+                <p> <span class="userElement"> Name:  </span>   {{ user.name }} </p>    
+                <p> <span class="userElement"> Created At: </span>  {{ user.created_at }} </p>
+                <p> <span class="userElement"> ID: </span>   {{ user.id }} </p>
+                <p> <span class="userElement"> Street:  </span>   {{ user.street }} </p>
+                <p> <span class="userElement"> City: </span>   {{ user.city }} </p>
+                <p> <span class="userElement"> State: </span>   {{ user.state }} </p>
+                <p> <span class="userElement"> Pin: </span>   {{ user.pin }} </p>
+                <p> <span class="userElement"> User ID: </span>   {{ user.userId }} </p>
+                <p> <span class="userElement"> Primary: </span>   {{ user.isPrimary == 1 ? 'Yes' : 'No' }} </p>
+                <p> <span class="userElement"> District: </span>   {{ user.district }} </p>
+                <p> <span class="userElement"> Lat Long: </span>   {{ user.latLong }} </p>
+                </mat-card-content>
+                <mat-card-actions align="end">
+                    <button mat-raised-button color="primary" >EDIT</button>
+                <!-- <button mat-button>SHARE</button> -->
+                </mat-card-actions>
+            </mat-card>
+        </div>
+
+    </div>
+</div>

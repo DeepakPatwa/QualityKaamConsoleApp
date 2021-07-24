@@ -1,0 +1,45 @@
+<div class="p-3 px-4">
+    <div class="userBody">
+        <div class="searchBox">
+            <form class="example-form">
+                <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Srearch By userId or mobileNo</mat-label>
+                <input matInput [formControl]="userFC">
+                <mat-hint>Ex. 2356787890 or userId</mat-hint>
+                </mat-form-field>
+            </form>
+            <button mat-raised-button color="primary" (click)="getUser()">Submit</button>
+        </div>
+        <!-- <button mat-button color="primary" (click)="getUser()">Submit</button> -->
+
+        <div class="userCard">
+            <mat-card class="example-card">
+                <mat-card-header>
+                <!-- <div mat-card-avatar class="example-header-image"></div> -->
+                <mat-icon mat-card-avatar>account_circle</mat-icon>
+                <mat-card-title>{{ user.name }}</mat-card-title>
+                <mat-card-subtitle>{{ user.gender }}</mat-card-subtitle>
+                </mat-card-header>
+                <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+                <mat-card-content>
+                <p> <span class="userElement"> Created At: </span>  {{ user.created_at }} </p>
+                <p> <span class="userElement"> ID: </span>   {{ user.id }} </p>
+                <p> <span class="userElement"> Date Of Birth:  </span>   {{ user.dob }} </p>
+                <p> <span class="userElement"> Phone No.: </span>   {{ user.phone_num }} </p>
+                <p> <span class="userElement"> Image: </span>   {{ user.image }} </p>
+                <p> <span class="userElement"> Rating: </span>   {{ user.rating }} </p>
+                <p> <span class="userElement"> Rating Count: </span>   {{ user.ratingCount }} </p>
+                <p> <span class="userElement"> Password: </span>   {{ user.password }} </p>
+                <p> <span class="userElement"> Languages: </span>   {{ user.languages }} </p>
+                <p> <span class="userElement"> Business Alias: </span>   {{ user.businessAlias }} </p>
+                <p> <span class="userElement"> Bisiness Logo: </span>   {{ user.businessLogo }} </p>
+                </mat-card-content>
+                <mat-card-actions align="end">
+                <button mat-raised-button color="primary">EDIT</button>
+                <!-- <button mat-button>SHARE</button> -->
+                </mat-card-actions>
+            </mat-card>
+        </div>
+
+    </div>
+</div>

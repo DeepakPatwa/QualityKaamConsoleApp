@@ -1,0 +1,52 @@
+<div class="p-3 px-4">
+    <div class="userBody">
+        <div class="searchBox">
+            <form class="example-form">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Select an option to search by</mat-label>
+                    <mat-select [(value)]="selected">
+                      <mat-option value="userId">User ID</mat-option>
+                      <mat-option value="ticketId">Ticket ID</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Enter Search Text</mat-label>
+                        <input matInput [formControl]="userFC">
+                    <mat-hint>Ex. userId or ticketId</mat-hint>
+                </mat-form-field>
+            </form>
+            
+            <button mat-raised-button color="primary" (click)="getTickets()">Submit</button>
+        </div>
+        <!-- <button mat-button color="primary" (click)="getUser()">Submit</button> -->
+
+        <div class="userCard" *ngFor="let user of dataList">
+            <mat-card class="example-card">
+                <mat-card-header>
+                <!-- <div mat-card-avatar class="example-header-image"></div> -->
+                <mat-icon mat-card-avatar>sticky_note_2</mat-icon>
+                <mat-card-title>Ticket</mat-card-title>
+                <!-- <mat-card-subtitle>{{ user.gender }}</mat-card-subtitle> -->
+                </mat-card-header>
+                <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+                <mat-card-content>
+                <p> <span class="userElement"> Created At: </span>  {{ user.created_at }} </p>
+                <p> <span class="userElement"> ID:  </span>   {{ user.id }} </p>                    
+                <p> <span class="userElement"> Job ID: </span>   {{ user.jobId }} </p>
+                <p> <span class="userElement"> User ID:  </span>   {{ user.userId }} </p>
+                <p> <span class="userElement"> Status: </span>   {{ user.status }} </p>
+                <p> <span class="userElement"> Step: </span>   {{ user.step }} </p>
+                <p> <span class="userElement"> Issue: </span>   {{ user.issue }} </p>
+                <p> <span class="userElement"> Details: </span>   {{ user.details }} </p>
+                <p> <span class="userElement"> Comments: </span>   {{ user.comments }} </p>
+                <p> <span class="userElement"> App: </span>   {{ user.app }} </p>
+                </mat-card-content>
+                <mat-card-actions align="end">
+                    <button mat-raised-button color="primary" >EDIT</button>
+                <!-- <button mat-button>SHARE</button> -->
+                </mat-card-actions>
+            </mat-card>
+        </div>
+
+    </div>
+</div>

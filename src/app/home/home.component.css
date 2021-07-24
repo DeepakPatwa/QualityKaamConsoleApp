@@ -1,0 +1,7 @@
+.mat-button{
+    margin-left: 50px;
+}
+
+.active-list-item {
+    color: orange !important; /* Note: You could also use a custom theme */
+  }

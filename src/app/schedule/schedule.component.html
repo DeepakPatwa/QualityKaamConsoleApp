@@ -1,0 +1,61 @@
+<div class="p-3 px-4">
+    <div class="userBody">
+        <div class="searchBox">
+            <form class="example-form">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Select an option to search by</mat-label>
+                    <mat-select [(value)]="selected">
+                      <mat-option value="userId">User ID</mat-option>
+                      <mat-option value="jobId">Job ID</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Enter Search Text</mat-label>
+                        <input matInput [formControl]="userFC">
+                    <mat-hint>Ex. userId or JobId</mat-hint>
+                </mat-form-field>
+            </form>
+            
+            <button mat-raised-button color="primary" (click)="getSchedule()">Submit</button>
+        </div>
+        <!-- <button mat-button color="primary" (click)="getUser()">Submit</button> -->
+
+        <div class="userCard" *ngFor="let user of dataList">
+            <mat-card class="example-card">
+                <mat-card-header>
+                <!-- <div mat-card-avatar class="example-header-image"></div> -->
+                <mat-icon mat-card-avatar>schedule</mat-icon>
+                <mat-card-title>Schedule</mat-card-title>
+                <mat-card-subtitle>{{ user.gender }}</mat-card-subtitle>
+                </mat-card-header>
+                <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+                <mat-card-content>
+                <p> <span class="userElement"> Created At: </span>  {{ user.created_at }} </p>
+                <p> <span class="userElement"> ID:  </span>   {{ user.id }} </p>                    
+                <p> <span class="userElement"> Job ID: </span>   {{ user.jobId }} </p>
+                <p> <span class="userElement"> User ID:  </span>   {{ user.userId }} </p>
+                <p> <span class="userElement"> Job Started On: </span>   {{ user.jobStart }} </p>
+                <p> <span class="userElement"> Job Ended On: </span>   {{ user.jobEnd }} </p>
+                <p> <span class="userElement"> Holidays: </span>   {{ user.holidays }} </p>
+                <p> <span class="userElement"> No. Of Absent Days: </span>   {{ user.noOfAbsentDays }} </p>
+                <p> <span class="userElement"> Hours Per Day: </span>   {{ user.hoursPerDay }} </p>
+                <p> <span class="userElement"> Billed Till Now: </span>   {{ user.billedTillNow }} </p>
+                <p> <span class="userElement"> Cycle Started On: </span>   {{ user.cycleStart }} </p>
+                <p> <span class="userElement"> Cycle Ended On: </span>   {{ user.cycleEnd }} </p>
+                <p> <span class="userElement"> Rate Per Hour: </span>   {{ user.ratePerHour }} </p>
+                <p> <span class="userElement"> Rating Count: </span>   {{ user.ratingCount }} </p>
+                <p> <span class="userElement"> Rating: </span>   {{ user.rating }} </p>
+                <p> <span class="userElement"> Comment: </span>   {{ user.comment }} </p>
+                <p> <span class="userElement"> Job Start Time: </span>   {{ user.jobStartTime }} </p>
+                <p> <span class="userElement"> Cycle Duration: </span>   {{ user.cycleDuration }} </p>
+                <p> <span class="userElement"> Completed Hours: </span>   {{ user.completedHours }} </p>
+                </mat-card-content>
+                <mat-card-actions align="end">
+                    <button mat-raised-button color="primary" >EDIT</button>
+                <!-- <button mat-button>SHARE</button> -->
+                </mat-card-actions>
+            </mat-card>
+        </div>
+
+    </div>
+</div>
