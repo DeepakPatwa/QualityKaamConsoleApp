@@ -42,7 +42,7 @@
                 <p> <span class="userElement"> App: </span>   {{ user.app }} </p>
                 </mat-card-content>
                 <mat-card-actions align="end">
-                    <button mat-raised-button color="primary" >EDIT</button>
+                    <button mat-raised-button color="primary" (click)="onEdit(user.id)">EDIT</button>
                 <!-- <button mat-button>SHARE</button> -->
                 </mat-card-actions>
             </mat-card>

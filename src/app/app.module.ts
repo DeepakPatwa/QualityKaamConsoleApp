@@ -21,6 +21,7 @@ import { ScheduleComponent } from './schedule/schedule.component';
 import {MatSelectModule} from '@angular/material/select';
 import { TicketComponent } from './ticket/ticket.component';
 import { EditFormComponent } from './edit-form/edit-form.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { EditFormComponent } from './edit-form/edit-form.component';
     HttpClientModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

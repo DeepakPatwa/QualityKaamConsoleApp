@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { FormControl } from '@angular/forms';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { EditFormComponent } from '../edit-form/edit-form.component';
+import { SharedConstants } from '../SharedConstants';
 
 @Component({
   selector: 'app-user',
@@ -16,7 +19,7 @@ export class UserComponent implements OnInit {
 
   userFC = new FormControl('');
 
-  constructor(private userService: UserService) { 
+  constructor(private userService: UserService, private dialog: MatDialog) { 
 
   this.user={}
   }
@@ -40,5 +43,20 @@ export class UserComponent implements OnInit {
   }
 
   isNumber(n: any) { return /^-?[\d.]+(?:e-?\d+)?$/.test(n); } 
+
+  onEdit(userId: any){
+    console.log("edit clicked" + userId);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "40%";
+    dialogConfig.data = {
+      title: SharedConstants.USER_ENTITY_EDIT_TITLE,
+      data : this.user,
+      entityName: SharedConstants.USER_ENTITY_NAME
+    }
+    this.dialog.open(EditFormComponent, dialogConfig);
+  }
+
 
 }

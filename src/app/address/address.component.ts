@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { AddressService } from '../address.service';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { EditFormComponent } from '../edit-form/edit-form.component';
+import { SharedConstants } from '../SharedConstants';
 
 @Component({
   selector: 'app-address',
@@ -14,7 +17,7 @@ export class AddressComponent implements OnInit {
 
   userFC = new FormControl('');
 
-  constructor(private addressService: AddressService) { 
+  constructor(private addressService: AddressService, private dialog: MatDialog) { 
 
   this.user={}
   }
@@ -37,5 +40,19 @@ export class AddressComponent implements OnInit {
   }
 
   isNumber(n: any) { return /^-?[\d.]+(?:e-?\d+)?$/.test(n); } 
+
+  onEdit(userId: any){
+    console.log("edit clicked" + userId);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "40%";
+    dialogConfig.data = {
+      title: SharedConstants.ADDRESS_ENTITY_EDIT_TITLE,
+      data : this.user,
+      entityName: SharedConstants.ADDRESS_ENTITY_NAME
+    }
+    this.dialog.open(EditFormComponent, dialogConfig);
+  }
 
 }

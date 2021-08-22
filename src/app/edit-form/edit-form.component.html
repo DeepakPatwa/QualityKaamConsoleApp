@@ -1,1 +1,29 @@
-<p>edit-form works!</p>
+<!-- <p>edit-form works!</p> -->
+<h1 mat-dialog-title class="userElement"> {{ data.title }} </h1>
+<div mat-dialog-content>
+  <!-- <mat-form-field appearance="fill">
+    <mat-label>Favorite Animal</mat-label>
+    <input matInput [(ngModel)]="data.animal">
+  </mat-form-field> -->
+  <form [formGroup]="editFg" (ngSubmit)="onSubmit()">
+    <div *ngFor="let fcName of formControlsNames">
+      
+      <label>
+        <span class="userElement"> {{fcName}} :    </span> 
+      </label>   
+        <input type ="text"  class = "inputBox" formControlName= {{fcName}}>
+        
+      
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)='onCancelClick()'>Cancel</button>
+      <button type="submit" mat-raised-button color='primary' mat-dialog-close>Save</button>
+      <!-- <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button> -->
+    </div>
+  </form>
+</div>
+<!-- <div mat-dialog-actions>
+  <button mat-button (click)='onCancelClick()'>Cancel</button>
+  <button type="submit" mat-raised-button color='primary'>Save</button>
+  
+</div> -->

@@ -16,16 +16,7 @@ export class ScheduleComponent implements OnInit {
   user: any;
   user1: any;
   selected = 'userId';
-  dataList: any[]=[
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {},
-    {}
-  ];
+  dataList: any[]=[];
 
   userFC = new FormControl('');
 
